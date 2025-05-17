@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <title>Howsha Maalinlaha</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 40px;
+    }
+
+    .container {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      background: #fefefe;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="container" data-list="1">
+        <h2>✅ EURUSD</h2>
+        <div class="steps">
+          <label><input type="checkbox"> #QODOBKA 1AAD</label>
+          <label><input type="checkbox"> #QODOBKA 2AAD</label>
+          <label><input type="checkbox"> #QODOBKA 3AAD</label>
+          <label><input type="checkbox"> #QODOBKA 4AAD</label>
+          <label><input type="checkbox"> #QODOBKA 5AAD</label>
+          <label><input type="checkbox"> #QODOBKA 6AAD</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ku celi isla sidaan iyadoo kaliya col-md-4 la raacsiinayo -->
+    <div class="col-md-4">
+      <div class="container" data-list="2">
+        <h2>✅ AUDUSD</h2>
+        <div class="steps">
+          <label><input type="checkbox"> #QODOBKA 1AAD</label>
+          <label><input type="checkbox"> #QODOBKA 2AAD</label>
+          <label><input type="checkbox"> #QODOBKA 3AAD</label>
+          <label><input type="checkbox"> #QODOBKA 4AAD</label>
+          <label><input type="checkbox"> #QODOBKA 5AAD</label>
+          <label><input type="checkbox"> #QODOBKA 6AAD</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ku dar containers kale oo la mid ah -->
+    <div class="col-md-4">
+      <div class="container" data-list="3">
+        <h2>✅ USDJPY</h2>
+        <div class="steps">
+          <label><input type="checkbox"> #QODOBKA 1AAD</label>
+          <label><input type="checkbox"> #QODOBKA 2AAD</label>
+          <label><input type="checkbox"> #QODOBKA 3AAD</label>
+          <label><input type="checkbox"> #QODOBKA 4AAD</label>
+          <label><input type="checkbox"> #QODOBKA 5AAD</label>
+          <label><input type="checkbox"> #QODOBKA 6AAD</label>
+        </div>
+      </div>
+    </div>
+     <div class="col-md-4">
+      <div class="container" data-list="3">
+        <h2>✅ NZDUSD</h2>
+        <div class="steps">
+          <label><input type="checkbox"> #QODOBKA 1AAD</label>
+          <label><input type="checkbox"> #QODOBKA 2AAD</label>
+          <label><input type="checkbox"> #QODOBKA 3AAD</label>
+          <label><input type="checkbox"> #QODOBKA 4AAD</label>
+          <label><input type="checkbox"> #QODOBKA 5AAD</label>
+          <label><input type="checkbox"> #QODOBKA 6AAD</label>
+        </div>
+      </div>
+    </div> 
+    <div class="col-md-4">
+      <div class="container" data-list="3">
+        <h2>✅ EURJPY</h2>
+        <div class="steps">
+          <label><input type="checkbox"> #QODOBKA 1AAD</label>
+          <label><input type="checkbox"> #QODOBKA 2AAD</label>
+          <label><input type="checkbox"> #QODOBKA 3AAD</label>
+          <label><input type="checkbox"> #QODOBKA 4AAD</label>
+          <label><input type="checkbox"> #QODOBKA 5AAD</label>
+          <label><input type="checkbox"> #QODOBKA 6AAD</label>
+        </div>
+      </div>
+    </div> 
+    <div class="col-md-4">
+      <div class="container" data-list="3">
+        <h2>✅ USDCAD</h2>
+        <div class="steps">
+          <label><input type="checkbox"> #QODOBKA 1AAD</label>
+          <label><input type="checkbox"> #QODOBKA 2AAD</label>
+          <label><input type="checkbox"> #QODOBKA 3AAD</label>
+          <label><input type="checkbox"> #QODOBKA 4AAD</label>
+          <label><input type="checkbox"> #QODOBKA 5AAD</label>
+          <label><input type="checkbox"> #QODOBKA 6AAD</label>
+        </div>
+      </div>
+    </div>   
+
+    <div style="text-align: center; margin-bottom: 20px;">
+  <button id="clearData" style="padding: 10px 20px; font-size: 16px; background-color: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer;">
+    🧹 Tirtir Dhammaan Xogta
+  </button>
+</div>
+    <!-- Waxaad ku dari kartaa intaad rabto -->
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.container').forEach((container, containerIndex) => {
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+
+    // Load kaydka marka page-ku furmo
+    checkboxes.forEach((checkbox, index) => {
+      const saved = localStorage.getItem(`checkbox_${containerIndex}_${index}`);
+      if (saved === "true") {
+        checkbox.checked = true;
+        checkbox.parentElement.classList.add("done");
+      }
+    });
+    document.getElementById('clearData').addEventListener('click', function () {
+  localStorage.clear();
+  location.reload(); // Refresh the page to reset checkboxes
+});
+
+    // Markasta oo la click-gareeyo checkbox
+    checkboxes.forEach((checkbox, index) => {
+      checkbox.addEventListener("change", function () {
+        localStorage.setItem(`checkbox_${containerIndex}_${index}`, checkbox.checked);
+        checkbox.parentElement.classList.toggle("done", checkbox.checked);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
