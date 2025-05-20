@@ -4,44 +4,75 @@
   <meta charset="UTF-8">
   <title>Howsha Maalinlaha</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <style>
     body {
       font-family: sans-serif;
-      margin: 20px;
+      margin: 10px;
+      background-color: #121212;
+      color: #f5f5f5;
     }
 
     .container {
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 10px; 
-      background: #fefefe;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 10px;
+      margin-bottom: 0px;
+      background: #1e1e1e;
     }
 
     h2 {
       text-align: center;
     }
 
-    .reset-link {
+    h2 a {
+      color: #90ee90;
       text-decoration: none;
-      color: inherit;
+      cursor: pointer;
+    }
+
+    h2 a:hover {
+      text-decoration: underline;
     }
 
     label {
       display: block;
-      margin: 10px 0; 
-      background: #f9f9f9;
+      margin: 10px 0;
+      background: #2a2a2a;
       border-radius: 5px;
       cursor: pointer;
+      padding: 0px;
+      transition: background 0.2s;
+    }
+
+    label:hover {
+      background: #333;
     }
 
     input[type="checkbox"] {
       margin-right: 10px;
       transform: scale(1.2);
+      accent-color: #90ee90;
     }
 
     .done {
       text-decoration: line-through;
       color: gray;
+    }
+
+    #clearData {
+      padding: 5px 5px;
+      font-size: 16px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #clearData:hover {
+      background-color: #c82333;
     }
   </style>
 </head>
@@ -50,144 +81,165 @@
 <div class="container-fluid">
   <div class="row g-4">
 
-    <!-- EURUSD -->
+    <!-- Container Template -->
     <div class="col-md-4">
       <div class="container" data-list="1">
         <h2><a href="#" class="reset-link">✅ EURUSD</a></h2>
         <div class="steps">
           <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label> 
+          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
           <label><input type="checkbox"> #soo hel 15m liquidity</label>
           <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label> 
+          <label><input type="checkbox"> #hala taabto zone ka</label>
           <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo </label> 
-          <label><input type="checkbox"> #Target 1:3 </label>
+          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
+          <label><input type="checkbox"> #Target 1:3</label>
         </div>
       </div>
     </div>
 
-    <!-- AUDUSD -->
+    <!-- Add more containers below (AUDUSD, NZDUSD, EURAUD, USDCAD, USDJPY) -->
+
+    <!-- Sample additional one -->
     <div class="col-md-4">
+      <div class="container" data-list="2">
+        <h2><a href="#" class="reset-link">✅ NZDUSD</a></h2>
+        <div class="steps">
+          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
+          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
+          <label><input type="checkbox"> #soo hel 15m liquidity</label>
+          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
+          <label><input type="checkbox"> #hala taabto zone ka</label>
+          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
+          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
+          <label><input type="checkbox"> #Target 1:3</label>
+        </div>
+      </div>
+    </div>
+     <div class="col-md-4">
       <div class="container" data-list="2">
         <h2><a href="#" class="reset-link">✅ AUDUSD</a></h2>
         <div class="steps">
           <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label> 
+          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
           <label><input type="checkbox"> #soo hel 15m liquidity</label>
           <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label> 
+          <label><input type="checkbox"> #hala taabto zone ka</label>
           <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo </label> 
-          <label><input type="checkbox"> #Target 1:3 </label>
+          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
+          <label><input type="checkbox"> #Target 1:3</label>
         </div>
       </div>
     </div>
-
-    <!-- NZDUSD -->
+ <!-- Container Template -->
     <div class="col-md-4">
-      <div class="container" data-list="3">
-        <h2><a href="#" class="reset-link">✅ NZDUSD</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label> 
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label> 
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo </label> 
-          <label><input type="checkbox"> #Target 1:3 </label>
-        </div>
-      </div>
-    </div>
-
-    <!-- EURAUD -->
-    <div class="col-md-4">
-      <div class="container" data-list="4">
+      <div class="container" data-list="1">
         <h2><a href="#" class="reset-link">✅ EURAUD</a></h2>
         <div class="steps">
           <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label> 
+          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
           <label><input type="checkbox"> #soo hel 15m liquidity</label>
           <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label> 
+          <label><input type="checkbox"> #hala taabto zone ka</label>
           <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo </label> 
-          <label><input type="checkbox"> #Target 1:3 </label>
+          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
+          <label><input type="checkbox"> #Target 1:3</label>
         </div>
       </div>
     </div>
 
-    <!-- USDCAD -->
+    <!-- Add more containers below (AUDUSD, NZDUSD, EURAUD, USDCAD, USDJPY) -->
+
+    <!-- Sample additional one -->
     <div class="col-md-4">
-      <div class="container" data-list="5">
+      <div class="container" data-list="2">
         <h2><a href="#" class="reset-link">✅ USDCAD</a></h2>
         <div class="steps">
           <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label> 
+          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
           <label><input type="checkbox"> #soo hel 15m liquidity</label>
           <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label> 
+          <label><input type="checkbox"> #hala taabto zone ka</label>
           <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo </label> 
-          <label><input type="checkbox"> #Target 1:3 </label>
+          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
+          <label><input type="checkbox"> #Target 1:3</label>
         </div>
       </div>
     </div>
-
-    <!-- USDJPY -->
-    <div class="col-md-4">
-      <div class="container" data-list="6">
+     <div class="col-md-4">
+      <div class="container" data-list="2">
         <h2><a href="#" class="reset-link">✅ USDJPY</a></h2>
         <div class="steps">
           <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label> 
+          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
           <label><input type="checkbox"> #soo hel 15m liquidity</label>
           <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label> 
+          <label><input type="checkbox"> #hala taabto zone ka</label>
           <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo </label> 
-          <label><input type="checkbox"> #Target 1:3 </label>
+          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
+          <label><input type="checkbox"> #Target 1:3</label>
         </div>
       </div>
     </div>
+     
 
   </div>
 </div>
-
 <script>
-  // Load + save checkbox states
   document.querySelectorAll('.container').forEach((container, containerIndex) => {
     const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const title = container.querySelector('h2');
 
+    // Make <h2> look like a clickable link
+    title.style.cursor = 'pointer';
+    title.style.textDecoration = 'underline';
+
+    // Restore checkbox state from localStorage
     checkboxes.forEach((checkbox, index) => {
-      const key = `checkbox_${containerIndex}_${index}`;
-      const saved = localStorage.getItem(key);
+      const saved = localStorage.getItem(`checkbox_${containerIndex}_${index}`);
       if (saved === "true") {
         checkbox.checked = true;
         checkbox.parentElement.classList.add("done");
       }
+    });
 
-      checkbox.addEventListener("change", function () {
-        localStorage.setItem(key, checkbox.checked);
+    // Save state on checkbox change
+    checkboxes.forEach((checkbox, index) => {
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem(`checkbox_${containerIndex}_${index}`, checkbox.checked);
         checkbox.parentElement.classList.toggle("done", checkbox.checked);
       });
     });
 
-    // Reset only this container when clicking the link
-    const link = container.querySelector('.reset-link');
-    if (link) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (confirm("Ma rabtaa inaad nadiifiso qeybtaan?")) {
+    // Clear only this section when clicking its <h2>
+    title.addEventListener('click', () => {
+      Swal.fire({
+        title: 'Ma hubtaa?',
+        text: "Waxaa tirtiri doontaa xogta qaybtaan kaliya.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Haa, tirtir!',
+        cancelButtonText: 'Maya',
+        background: '#1e1e1e',
+        color: '#f5f5f5'
+      }).then((result) => {
+        if (result.isConfirmed) {
           checkboxes.forEach((checkbox, index) => {
+            localStorage.removeItem(`checkbox_${containerIndex}_${index}`);
             checkbox.checked = false;
             checkbox.parentElement.classList.remove("done");
-            localStorage.removeItem(`checkbox_${containerIndex}_${index}`);
+          });
+
+          Swal.fire({
+            icon: 'success',
+            title: 'La tirtiyay!',
+            text: 'Qaybtaan waa la nadiifiyay.',
+            timer: 1500,
+            showConfirmButton: false
           });
         }
       });
-    }
+    });
   });
 </script>
 
