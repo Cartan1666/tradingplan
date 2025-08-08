@@ -1,248 +1,294 @@
 <!DOCTYPE html>
-<html lang="so">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"> 
-  <title>Howsha Maalinlaha</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Mode Scenario Cards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    /* General Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: sans-serif;
-      margin: 10px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #121212;
-      color: #f5f5f5;
+      color: #f1f1f1;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ffffff;
+      font-size: 2em;
     }
 
     .container {
-      padding: 10px;
-      border: 1px solid #444;
-      border-radius: 10px;
-      margin-bottom: 0px;
-      background: #1e1e1e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    h2 {
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 15px;
+      padding: 15px 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+      flex: 1;
+      min-width: 300px;
+      max-width: 320px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
       text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.4em;
+      color: #00bcd4;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
-    h2 a {
-      color: #90ee90;
-      text-decoration: none;
-      cursor: pointer;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 20px;
     }
 
-    h2 a:hover {
-      text-decoration: underline;
+    li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      background-color: #2c2c2c;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      position: relative;
     }
 
-    label {
-      display: block;
-      margin: 10px 0;
-      background: #2a2a2a;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 0px;
-      transition: background 0.2s;
+    li:hover {
+      background-color: #3b3b3b;
     }
 
-    label:hover {
-      background: #333;
+    li.checked {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    li.checked .icon {
+      color: #4CAF50;
     }
 
     input[type="checkbox"] {
       margin-right: 10px;
       transform: scale(1.2);
-      accent-color: #90ee90;
-    }
-
-    .done {
-      text-decoration: line-through;
-      color: gray;
-    }
-
-    #clearData {
-      padding: 5px 5px;
-      font-size: 16px;
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      border-radius: 8px;
+      accent-color: #00bcd4;
       cursor: pointer;
     }
 
-    #clearData:hover {
-      background-color: #c82333;
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .clear-btn, .delete-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clear-btn {
+      background-color: #ff5555;
+      color: white;
+    }
+
+    .clear-btn:hover {
+      background-color: #ff3333;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    .clear-btn i, .delete-btn i {
+      margin-right: 8px;
+    }
+
+    .icon {
+      margin-right: 10px;
+      color: #00bcd4;
+      width: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 1300px) {
+      .container {
+        max-width: 1000px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        padding: 20px 15px;
+        min-width: 100%;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+      
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-
-<div class="container-fluid">
-  <div class="row g-4">
-
-    <!-- Container Template -->
-    <div class="col-md-4">
-      <div class="container" data-list="1">
-        <h2><a href="#" class="reset-link">✅ EURUSD</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label>
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
-          <label><input type="checkbox"> #Target 1:3</label>
-        </div>
+  <h1>Scenario Checklist</h1>
+  <div class="container">
+    
+    <!-- Scenario One -->
+    <div class="card" data-scenario="scenario1">
+      <h2><i class="fas fa-list-check"></i> Scenario One</h2>
+      <ul>
+        <li data-item="1"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 4hr trend & key level</li>
+        <li data-item="2"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 1hr trend & key level</li>
+        <li data-item="3"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 15m impulsiveki hore</li>
+        <li data-item="4"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 15m CTB yimid zone</li>
+        <li data-item="5"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span> so hel liquidity on T/B</li>
+        <li data-item="6"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 5m CTB in 3 Moves</li>
+        <li data-item="7"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>So hel 1m trend Break</li>
+        <li data-item="8"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>Target 1,2,3 last 1HR HH/LL</li>
+      </ul>
+      <div class="button-container">
+        <button class="clear-btn" onclick="clearCheckboxes(this)"><i class="fas fa-eraser"></i> Clear</button>
+        <button class="delete-btn" onclick="deleteScenario(this)"><i class="fas fa-trash-alt"></i> Delete</button>
       </div>
     </div>
 
-    <!-- Add more containers below (AUDUSD, NZDUSD, EURAUD, USDCAD, USDJPY) -->
-
-    <!-- Sample additional one -->
-    <div class="col-md-4">
-      <div class="container" data-list="2">
-        <h2><a href="#" class="reset-link">✅ NZDUSD</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label>
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
-          <label><input type="checkbox"> #Target 1:3</label>
-        </div>
+    <!-- Scenario Two -->
+    <div class="card" data-scenario="scenario2">
+      <h2><i class="fas fa-list-check"></i> Scenario Two</h2>
+      <ul>
+        <li data-item="1"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 1/4HR trend with key lvl </li> 
+        <li data-item="1"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 15M trend & key level</li>
+        <li data-item="3"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 5M impulsive ki hore</li>
+        <li data-item="4"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 5m CTB yimid zone</li>
+        <li data-item="5"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span> so hel liquidity on T/B</li>
+        <li data-item="6"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>so hel 5m CTB in 3 Moves</li> 
+        <li data-item="7"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>So hel 1m trend Break</li>
+        <li data-item="8"><input type="checkbox" /> <span class="icon"><i class="fas fa-check-circle"></i></span>Target 1,2,3 last 15M HH/LL</li>
+      </ul>
+      <div class="button-container">
+        <button class="clear-btn" onclick="clearCheckboxes(this)"><i class="fas fa-eraser"></i> Clear</button>
+        <button class="delete-btn" onclick="deleteScenario(this)"><i class="fas fa-trash-alt"></i> Delete</button>
       </div>
     </div>
-     <div class="col-md-4">
-      <div class="container" data-list="2">
-        <h2><a href="#" class="reset-link">✅ AUDUSD</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label>
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
-          <label><input type="checkbox"> #Target 1:3</label>
-        </div>
-      </div>
-    </div>
- <!-- Container Template -->
-    <div class="col-md-4">
-      <div class="container" data-list="1">
-        <h2><a href="#" class="reset-link">✅ EURAUD</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label>
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
-          <label><input type="checkbox"> #Target 1:3</label>
-        </div>
-      </div>
-    </div>
-
-    <!-- Add more containers below (AUDUSD, NZDUSD, EURAUD, USDCAD, USDJPY) -->
-
-    <!-- Sample additional one -->
-    <div class="col-md-4">
-      <div class="container" data-list="2">
-        <h2><a href="#" class="reset-link">✅ USDCAD</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label>
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
-          <label><input type="checkbox"> #Target 1:3</label>
-        </div>
-      </div>
-    </div>
-     <div class="col-md-4">
-      <div class="container" data-list="2">
-        <h2><a href="#" class="reset-link">✅ USDJPY</a></h2>
-        <div class="steps">
-          <label><input type="checkbox"> #soo hel 4hr high iyo low</label>
-          <label><input type="checkbox"> #soo hel 15m Bos ku wajahan trend ga</label>
-          <label><input type="checkbox"> #soo hel 15m liquidity</label>
-          <label><input type="checkbox"> #calamade zones-ka la taban liquidty-na ka koreeya</label>
-          <label><input type="checkbox"> #hala taabto zone ka</label>
-          <label><input type="checkbox"> #aad 1m soo hel 1m structure la jabiyay</label>
-          <label><input type="checkbox"> #calamade zone yada la taban karo</label>
-          <label><input type="checkbox"> #Target 1:3</label>
-        </div>
-      </div>
-    </div>
-     
-
+ 
   </div>
-</div>
-<script>
-  document.querySelectorAll('.container').forEach((container, containerIndex) => {
-    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
-    const title = container.querySelector('h2');
 
-    // Make <h2> look like a clickable link
-    title.style.cursor = 'pointer';
-    title.style.textDecoration = 'underline';
-
-    // Restore checkbox state from localStorage
-    checkboxes.forEach((checkbox, index) => {
-      const saved = localStorage.getItem(`checkbox_${containerIndex}_${index}`);
-      if (saved === "true") {
-        checkbox.checked = true;
-        checkbox.parentElement.classList.add("done");
-      }
-    });
-
-    // Save state on checkbox change
-    checkboxes.forEach((checkbox, index) => {
-      checkbox.addEventListener("change", () => {
-        localStorage.setItem(`checkbox_${containerIndex}_${index}`, checkbox.checked);
-        checkbox.parentElement.classList.toggle("done", checkbox.checked);
-      });
-    });
-
-    // Clear only this section when clicking its <h2>
-    title.addEventListener('click', () => {
-      Swal.fire({
-        title: 'Ma hubtaa?',
-        text: "Waxaa tirtiri doontaa xogta qaybtaan kaliya.",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Haa, tirtir!',
-        cancelButtonText: 'Maya',
-        background: '#1e1e1e',
-        color: '#f5f5f5'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          checkboxes.forEach((checkbox, index) => {
-            localStorage.removeItem(`checkbox_${containerIndex}_${index}`);
-            checkbox.checked = false;
-            checkbox.parentElement.classList.remove("done");
-          });
-
-          Swal.fire({
-            icon: 'success',
-            title: 'La tirtiyay!',
-            text: 'Qaybtaan waa la nadiifiyay.',
-            timer: 1500,
-            showConfirmButton: false
+  <script>
+    // Load saved state when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const scenarioId = card.getAttribute('data-scenario');
+        const savedState = localStorage.getItem(scenarioId);
+        
+        if (savedState) {
+          const checkedItems = JSON.parse(savedState);
+          checkedItems.forEach(itemId => {
+            const item = card.querySelector(`li[data-item="${itemId}"] input[type="checkbox"]`);
+            if (item) {
+              item.checked = true;
+              item.closest('li').classList.add('checked');
+            }
           });
         }
       });
     });
-  });
-</script>
 
+    // Save state when checkbox is clicked
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const li = this.closest('li');
+        if (this.checked) {
+          li.classList.add('checked');
+        } else {
+          li.classList.remove('checked');
+        }
+        saveScenarioState(this);
+      });
+    });
 
+    function saveScenarioState(checkbox) {
+      const card = checkbox.closest('.card');
+      const scenarioId = card.getAttribute('data-scenario');
+      const checkboxes = card.querySelectorAll('input[type="checkbox"]');
+      
+      const checkedItems = [];
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          const itemId = cb.closest('li').getAttribute('data-item');
+          checkedItems.push(itemId);
+        }
+      });
+      
+      localStorage.setItem(scenarioId, JSON.stringify(checkedItems));
+    }
+
+    function clearCheckboxes(button) {
+      const card = button.closest('.card');
+      const scenarioId = card.getAttribute('data-scenario');
+      const checkboxes = card.querySelectorAll('input[type="checkbox"]');
+      
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+        checkbox.closest('li').classList.remove('checked');
+      });
+      
+      localStorage.removeItem(scenarioId);
+    }
+
+    function deleteScenario(button) {
+      const card = button.closest('.card');
+      const scenarioId = card.getAttribute('data-scenario');
+      
+      // Remove from local storage
+      localStorage.removeItem(scenarioId);
+      
+      // Remove from DOM
+      card.remove();
+    }
+  </script>
 </body>
 </html>
